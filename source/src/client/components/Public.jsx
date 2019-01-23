@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
+import Hyflogo from '../assets/hyf-logo.png'
 
 export default class Public extends Component {
   render() {
-    return <h1>Use the link at the top to navigate for now</h1>
+    return (
+    <div>
+      <img src={Hyflogo} alt='img' className='AdminLogo' />
+      <h1>Welcome to Hack Your Future Calendar App</h1>
+    </div>
+    );
+    
   }
 }
