@@ -1,5 +1,44 @@
+*{
+  margin:0;
+  padding: 0;
+  text-decoration: none;
+  line-height: 16px;
+}
+h1{
+  padding: 20px 20px;
+  font-size: 2em;
+  line-height: 1em;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #296DC4;
+  display: flex;
+  align-items: center;
+  height: 30vh;
+  justify-content: center;
+  border: 1px white;
+}
+strong{
+  padding: 20px 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #296DC4;
+  display: flex;
+  align-items: center;
+  height: 70vh;
+  justify-content: center;
+  font-size: 25px;
+}
+
 ul {
   list-style-type: none;
+}
+li{
+  padding: 10px 0;
+}
+.container{
+  display: flex;  
+}
+aside{
+  width: 15%;
+  padding:40px;
 }
 
 .loginbutton {
@@ -23,18 +62,21 @@ img {
   align-items: center;
 }
 
-.adminView {
-  margin: auto;
-  width: 45%;
-  padding: 10px;
-  background-color: #f1f1f1;
+main {
+  margin: 30px 30px;
+  padding: 20px 10px;
+  width: 70%;
+  padding: 10px;  
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.19), 0 1px 1px rgba(0,0,0,0.23);;
+  border-radius: 10px;
+  height: 85vh;
 }
 
 .adminViewHead {
   display: flex;
   margin: auto;
   padding: 10px;
-  background-color: #f1f1f1;
   justify-content: space-between;
 }
 
@@ -54,7 +96,6 @@ img {
 }
 
 .weekNum {
-  line-height: 0;
   margin: 0 2.2%;
   padding: 0;
   display: flex;
@@ -224,4 +265,7 @@ img {
 .mentorRowBtn {
   margin-top: 0;
   width: 100%;
+}
+html{
+  background: #F9F9FB;
 }
