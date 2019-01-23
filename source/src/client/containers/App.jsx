@@ -10,6 +10,7 @@ import AdminView from './AdminView'
 import AddModule from './AddModule'
 import AddClass from './AddClass'
 import AssignMentor from '../components/AssignMentor'
+import { Button } from 'evergreen-ui';
 
 export default class App extends Component {
   constructor(props) {
@@ -40,7 +41,8 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="container">
+        <aside>
           <nav>
             <ul>
               {/* If user is logged in displays a profile link to view profile */}
@@ -53,10 +55,14 @@ export default class App extends Component {
               <li>
                 <Link to='/'>Landing Page</Link>
               </li>
-              <LoginButton isAuthenticated={this.state.isAuthenticated} />
+
+              <li>
+                <LoginButton isAuthenticated={this.state.isAuthenticated} />
+              </li>
             </ul>
           </nav>
-
+          </aside>
+          <main>
           <Route exact path='/' component={Public} />
           <Route
             exact
@@ -81,7 +87,8 @@ export default class App extends Component {
             path='/adminview/assignmentor'
             render={props => <AssignMentor {...props} />}
           />
-        </div>
+          </main>
+        </div>        
       </Router>
     )
   }
