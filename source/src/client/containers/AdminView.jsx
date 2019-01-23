@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import Months from '../components/Months'
 import ClassRow from '../components/ClassRow'
-import mockImg from '../assets/logo_mock.PNG'
+import Hyflogo from '../assets/hyf-logo.png'
 import { Link } from 'react-router-dom'
 import { getClasses } from '../api/apiCalls'
 import moment from 'moment'
+import { Button, Avatar } from 'evergreen-ui'
+
 
 export default class AdminPage extends Component {
   constructor(props) {
@@ -32,16 +34,12 @@ export default class AdminPage extends Component {
   render() {
     //first off all check if the user has the "admin" type, before rendering aynthing
     if (this.props.user.role_id === 1) {
-      return (
+      return (  
         <div className='adminView'>
           <div className='adminViewHead'>
-            <img src={mockImg} alt='img' className='AdminLogo' />
+            <img src={Hyflogo} alt='img' className='AdminLogo' />
             <Link to='/profile/edit'>
-              <img
-                src={this.props.user.avatar}
-                alt='Avatar'
-                className='adminAvatar'
-              />
+            <Avatar src={this.props.user.avatar} size={40} alt='Avatar'/>
             </Link>
           </div>
           {/* Render the line where week number and months are displayed*/}
@@ -56,9 +54,10 @@ export default class AdminPage extends Component {
               ))
             : null}
           {/* placeholder to be removed, it's acting as a footer at the moment to be clear what page we're on*/}
-          <p>AdminView</p>
           <Link className=' button' to='/adminview/createclass'>
-            <button className='addclassbuttonwrap'>Add a Class</button>
+          
+          <Button appearance="primary">Add a Class</Button>
+{/*             <button className='addclassbuttonwrap'>Add a Class</button> */}
           </Link>
         </div>
       )
@@ -66,9 +65,9 @@ export default class AdminPage extends Component {
       //If the user dosne't have the admin type render this.
       return (
         <div>
-          <p>You need to be an admin to view this page.</p>
+          <strong>Please authenticate that you are admin via login</strong>
         </div>
       )
     }
-  }
+  }  
 }
