@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Button } from 'evergreen-ui/commonjs/buttons';
 
 export default class ClassRow extends Component {
   render() {
@@ -17,7 +18,7 @@ export default class ClassRow extends Component {
                   className: this.props.classObj.classname
                 }
               }}>
-              <button className='editbutton'>Edit</button>
+              <Button marginLeft={12} iconBefore="edit">Edit</Button>
             </Link>
           </div>
           <Link
@@ -29,7 +30,7 @@ export default class ClassRow extends Component {
                 className: this.props.classObj.classname
               }
             }}>
-            <button className='createModule'>Add module</button>
+            <Button marginLeft={12} iconBefore="plus">Add module</Button>
           </Link>
         </div>
       </>

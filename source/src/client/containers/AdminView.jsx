@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Months from '../components/Months'
 import ClassRow from '../components/ClassRow'
-import Hyflogo from '../assets/hyf-logo.png'
 import { Link } from 'react-router-dom'
 import { getClasses } from '../api/apiCalls'
 import moment from 'moment'
@@ -37,7 +36,7 @@ export default class AdminPage extends Component {
       return (  
         <div className='adminView'>
           <div className='adminViewHead'>
-            <img src={Hyflogo} alt='img' className='AdminLogo' />
+            
             <Link to='/profile/edit'>
             <Avatar src={this.props.user.avatar} size={40} alt='Avatar'/>
             </Link>
@@ -56,7 +55,7 @@ export default class AdminPage extends Component {
           {/* placeholder to be removed, it's acting as a footer at the moment to be clear what page we're on*/}
           <Link className=' button' to='/adminview/createclass'>
           
-          <Button appearance="primary">Add a Class</Button>
+          <Button marginTop={16} appearance="primary">Add a Class</Button>
 {/*             <button className='addclassbuttonwrap'>Add a Class</button> */}
           </Link>
         </div>
