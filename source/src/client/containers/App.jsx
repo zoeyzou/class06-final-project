@@ -10,7 +10,6 @@ import AdminView from './AdminView'
 import AddModule from './AddModule'
 import AddClass from './AddClass'
 import AssignMentor from '../components/AssignMentor'
-import { Button } from 'evergreen-ui';
 
 export default class App extends Component {
   constructor(props) {
