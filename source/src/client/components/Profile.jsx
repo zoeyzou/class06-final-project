@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Pane, Avatar, Heading } from "evergreen-ui";
+import { Pane } from "evergreen-ui";
 import EditProfile from "./EditProfile";
 
 export default class Profile extends Component {
@@ -16,20 +16,6 @@ export default class Profile extends Component {
           margin={16}
         >
           <EditProfile user={this.props.user} />
-          <Pane width="100%" height="200">
-            <Heading size={800} marginTop="default">
-              Welcome back {this.props.user.name}!
-            </Heading>
-          </Pane>
-          <Pane width="100%">
-            <Avatar
-              is="a"
-              href="/profile/edit"
-              src={this.props.user.avatar}
-              size={40}
-              alt="Avatar"
-            />
-          </Pane>
         </Pane>
       );
     } else {
