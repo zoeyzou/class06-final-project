@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+import { TextInput } from 'evergreen-ui'
 
 export default class InputField extends Component {
   render() {
     return (
       <div>
-        <input
+        <TextInput
+          width={520}
+          marginBottom={16}         
           type={this.props.type}
           className={this.props.className}
           placeholder={this.props.placeholder}

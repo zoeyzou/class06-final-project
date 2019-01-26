@@ -18,7 +18,7 @@ export default class ClassRow extends Component {
                   className: this.props.classObj.classname
                 }
               }}>
-              <Button marginLeft={12} iconBefore="edit">Edit</Button>
+              <Button appearance="minimal" intent="none"  marginLeft={12} iconBefore="edit">Edit</Button>
             </Link>
           </div>
           <Link

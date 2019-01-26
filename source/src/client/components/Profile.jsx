@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import { Pane } from "evergreen-ui";
+import EditProfile from "./EditProfile";
 
 export default class Profile extends Component {
   render() {
@@ -7,13 +9,26 @@ export default class Profile extends Component {
     //but i did it this way aswell as an example, if it's usefull in another case.
     if (Object.keys(this.props.user).length > 1) {
       return (
-        <div className='userinfo'>
-          <p> Welcome back {this.props.user.name}!</p>
-          <img src={this.props.user.avatar} alt='Avatar' />
-        </div>
-      )
+        <Pane
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          margin={16}
+        >
+          <EditProfile user={this.props.user} />
+        </Pane>
+      );
     } else {
-      return <h1>Please log in to see your profile information</h1>
+      return (
+        <Pane
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          paddingTop={16}
+        >
+          <h1>Please log in to see your profile information</h1>
+        </Pane>
+      );
     }
   }
 }
