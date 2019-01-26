@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import InputField from '../components/InputField'
 import { Redirect } from 'react-router-dom'
 import { createNewClass } from '../api/apiCalls'
+import { Button } from 'evergreen-ui';
+import { Pane } from 'evergreen-ui/commonjs/layers';
 
 export default class AddClass extends Component {
   constructor(props) {
@@ -43,10 +45,10 @@ export default class AddClass extends Component {
     }
 
     return (
-      <div className='addClass'>
-        <h3 id='classtitle'>Add Class</h3>
-        <div>
-          <p>Enter Name</p>
+      <Pane display="flex" alignItems="center" justifyContent="center">
+      <Pane>
+        <h1>Add Class</h1>
+          <p>Enter Class Name</p>
           <InputField
             type='text'
             className={'inpfield ' + this.state.isValid}
@@ -55,11 +57,14 @@ export default class AddClass extends Component {
             value={this.state.inp}
             onKeyPress={this.onKeyChange}
           />
-        </div>
-        <button className='submitclass' onClick={this.onSubmitClickHandler}>
-          Add Class
-        </button>
-      </div>
+        
+        <Pane>
+          <Button iconBefore="plus" onClick={this.onSubmitClickHandler}>
+            Add Class
+          </Button>
+        </Pane>
+        </Pane>
+      </Pane>
     )
   }
 }

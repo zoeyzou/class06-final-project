@@ -4,7 +4,7 @@ import ClassRow from '../components/ClassRow'
 import { Link } from 'react-router-dom'
 import { getClasses } from '../api/apiCalls'
 import moment from 'moment'
-import { Button, Avatar } from 'evergreen-ui'
+import { Button } from 'evergreen-ui'
 
 
 export default class AdminPage extends Component {
@@ -35,12 +35,6 @@ export default class AdminPage extends Component {
     if (this.props.user.role_id === 1) {
       return (  
         <div className='adminView'>
-          <div className='adminViewHead'>
-            
-            <Link to='/profile/edit'>
-            <Avatar src={this.props.user.avatar} size={40} alt='Avatar'/>
-            </Link>
-          </div>
           {/* Render the line where week number and months are displayed*/}
           <Months
             weeks={this.state.numberOfWeeks + 1}
@@ -55,7 +49,7 @@ export default class AdminPage extends Component {
           {/* placeholder to be removed, it's acting as a footer at the moment to be clear what page we're on*/}
           <Link className=' button' to='/adminview/createclass'>
           
-          <Button marginTop={16} appearance="primary">Add a Class</Button>
+          <Button marginTop={16} appearance="primary" intent="primary" iconBefore="plus">Add a Class</Button>
 {/*             <button className='addclassbuttonwrap'>Add a Class</button> */}
           </Link>
         </div>

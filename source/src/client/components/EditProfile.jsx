@@ -1,25 +1,38 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import { Pane } from "evergreen-ui/commonjs/layers";
+import { Heading } from "evergreen-ui/commonjs/typography";
+import { Avatar } from "evergreen-ui/commonjs/avatar";
 
 export default class EditProfile extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      roles: ['Admin', 'Mentor', 'Student']
-    }
+      roles: ["Admin", "Mentor", "Student"]
+    };
   }
 
   render() {
     return (
-      <div className='editprofile'>
-        <div className='namebar'>
-          <img src={this.props.user.avatar} alt='none' className='useravatar' />
-          <div className='namerole'>
-            <h4>{this.props.user.name}</h4>
-            <p>{this.state.roles[this.props.user.role_id - 1]}</p>
-          </div>
-        </div>
-        <p>Skills ***TO BE DONE***</p>
-      </div>
-    )
+      <Pane
+        display="flex"
+        border="default"
+        width={400}
+        height={200}
+        justifyContent="center"
+        alignItems="center"
+      >
+      <Pane width="20%">
+        <Avatar src={this.props.user.avatar}  alt="admin" size={60} />
+      </Pane>
+        <Pane>
+          <Heading size={500} >
+          Name: {this.props.user.name}
+          </Heading>
+          <Heading size={500}>
+          Role: {this.state.roles[this.props.user.role_id - 1]}
+          </Heading>
+        </Pane>
+      </Pane>
+    );
   }
 }
