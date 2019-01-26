@@ -1,5 +1,5 @@
-const router = require('express').Router()
-const passport = require('passport')
+const router = require("express").Router();
+const passport = require("passport");
 
 /*
  * This acts as an express middleware that checks the client request
@@ -10,20 +10,20 @@ const passport = require('passport')
  */
 const authCheck = (req, res, next) => {
   if (!req.user) {
-    const user = { result: false }
-    res.json(user)
+    const user = { result: false };
+    res.json(user);
   } else {
-    next()
+    next();
   }
-}
+};
 
 const isAdmin = (req, res, next) => {
   if ((req.user.role_id = 1)) {
-    next()
+    next();
   } else {
-    res.send('notAdmin')
+    res.send("notAdmin");
   }
-}
+};
 
 /*
  * This route tells passport.js that when the hit the localhost:9001/auth/github endpoint
@@ -37,26 +37,36 @@ const isAdmin = (req, res, next) => {
  * 'https://www.googleapis.com/auth/calendar' to scope array
  */
 router.get(
-  '/google',
-  passport.authenticate('google', {
-    scope: ['profile']
+  "/google",
+  passport.authenticate("google", {
+    scope: ["profile"]
   })
-)
+);
 
 /*
  * This route logs out the user and strips the "logged in" information from their cookie
  */
-router.get('/google/logout', (req, res) => {
-  req.logout()
-  res.redirect('/')
-})
+router.get("/google/logout", (req, res) => {
+  req.logout();
+  console.log("env", process.env.RUNENV)
+  if (process.env.RUNENV === "dev") {
+    res.redirect("http://localhost:3000");
+  } else {
+    res.redirect("/");
+  }
+});
 
 /*
  * This get's called when a user is signed in and when we try to verify if their signed in.
  * It checks if the cookie is valid and then redirects to home path.
  */
-router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-  res.redirect('/')
-})
+router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
+  console.log("env", process.env.RUNENV)
+  if (process.env.RUNENV === "dev") {
+    res.redirect("http://localhost:3000");
+  } else {
+    res.redirect("/");
+  }
+});
 
-module.exports = { router, authCheck, isAdmin }
+module.exports = { router, authCheck, isAdmin };

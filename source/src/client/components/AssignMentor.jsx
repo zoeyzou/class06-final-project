@@ -30,6 +30,7 @@ export default class AssignMentor extends Component {
     )
 
     return (
+      <div class="addClassBg">
       <div className='addClass'>
         <h2>{this.state.moduleName}</h2>
         <h3>{this.state.className}</h3>
@@ -51,6 +52,7 @@ export default class AssignMentor extends Component {
             </div>
           ))}
         </div>
+      </div>
       </div>
     )
   }

@@ -4,6 +4,7 @@ import { getModuleOptions, createNewClassModule } from '../api/apiCalls'
 import Select from 'react-select'
 import moment from 'moment'
 import { Link, Redirect } from 'react-router-dom'
+import { Button } from 'evergreen-ui/commonjs/buttons';
 
 export default class AddModule extends Component {
   constructor(props) {
@@ -93,15 +94,19 @@ export default class AddModule extends Component {
         </div>
         <div className='modulebtns'>
           <Link to='/adminview'>
-            <button>Delete this module</button>
+            <Button marginRight={12} iconBefore="trash" intent="danger">
+            Delete this module
+            </Button>
           </Link>
 
-          <button
+          <Button
+            marginRight={12} 
+            iconBefore="manual"
             className='createClass'
             disabled={!this.state.selectedOption || !this.state.numberOfWeeks}
             onClick={this.handleBtnClick}>
             Create Class and Assign Mentor(s)
-          </button>
+          </Button>
         </div>
       </div>
     )
